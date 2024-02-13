@@ -1,7 +1,28 @@
 {{page-title "ReproductionEmberYetiTableCellRegistrationIssue"}}
 
-{{! The following component displays Ember's default welcome message. }}
-<WelcomePage />
-{{! Feel free to remove this! }}
+<YetiTable
+    @data={{array (hash firstName="Max" lastName="Mustermann") (hash firstName="John" lastName="Doe")}}
+    as |table|
+>
+    <table.thead as |thead|>
+        <thead.row as |row|>
+            <row.column @prop="firstName">
+                first name
+            </row.column>
+            <row.column @prop="lastName">
+                last name
+            </row.column>
+        </thead.row>
+        <thead.row as |row|>
+            <row.cell>
+                <input placeholder="first name">
+            </row.cell>
+            <row.cell>
+                <input placeholder="last name">
+            </row.cell>
+        </thead.row>
+    </table.thead>
+    <table.body />
+</YetiTable>
 
 {{outlet}}
